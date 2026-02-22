@@ -178,4 +178,5 @@ Advanced alerting system
 
 👩🏽‍💻 Author
 
-Nurudeen Durowade — DevOps Engineer focused on cloud architecture, automation, and continuous improvement.
+
+Nurudeen Durowade: DevOps Engineer focused on cloud architecture, automation, and continuous improvement.
