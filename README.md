@@ -118,13 +118,13 @@ GitHub Actions / Azure DevOps
 Linux shell scripting
 
 
-🐳 Running with Docker (Planned)
+# 🐳 Running with Docker (Planned)
 
 docker build -t infra-health-monitor .
 docker run infra-health-monitor
 
 
-☁️ Cloud Deployment (Planned)
+# ☁️ Cloud Deployment (Planned)
 
 cd terraform
 terraform init
@@ -133,7 +133,7 @@ terraform apply
 **The monitoring service will be deployed to an Azure VM via automated pipeline.**
 
 
-📊 Example Output
+# 📊 Example Output
 CPU Usage: 34%
 Memory Usage: 61%
 Disk Usage: 45%
