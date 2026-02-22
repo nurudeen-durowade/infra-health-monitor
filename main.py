@@ -5,20 +5,20 @@ import time
 
 
 while True:
-    cpu = health.check_cpu()
+    cpu = health.check_cpu(simulate=True)
 
-    memory = health.check_memory()
+    memory = health.check_memory(simulate=True)
 
-    disk = health.check_disk()
+    disk = health.check_disk(simulate=True)
 
-    health.write_to_logs()
+    health.write_to_logs(cpu, memory, disk)
 
-    alert.cpu_alert(cpu)
+    alert.cpu_alert(cpu, simulate=True)
 
-    alert.memory_alert(memory)
+    alert.memory_alert(memory, simulate=True)
 
-    alert.disk_alert(disk)
+    alert.disk_alert(disk, simulate=True)
 
-    # run every 1 minute
     time.sleep(60)
+
 

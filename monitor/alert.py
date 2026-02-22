@@ -1,4 +1,4 @@
-from config import CPU_THRESHOLD, MEMORY_THRESHOLD, DISK_THRESHOLD, EMAIL_RECIPIENT, SLACK_WEBHOOK_URL
+from .config import CPU_THRESHOLD, MEMORY_THRESHOLD, DISK_THRESHOLD, EMAIL_RECIPIENT, SLACK_WEBHOOK_URL
 import smtplib,ssl
 import requests
 from email.mime.text import MIMEText
@@ -6,7 +6,11 @@ from email.message import EmailMessage
 
 
 
-def send_email_alert(subject: str, message: str):
+def send_email_alert(subject: str, message: str, simulate=False):
+
+    if simulate:
+        print(f"[SIMULATION] Email: {subject} -> {EMAIL_RECIPIENT}")
+        return
 
     # Example using Gmail SMTP
 
@@ -33,7 +37,10 @@ def send_email_alert(subject: str, message: str):
 
 
 
-def send_slack_alert(message: str):
+def send_slack_alert(message: str, simulate=False):
+    if simulate:
+        print(f"[SIMULATION] Slack: {message}")
+        return
 
     try:
         payload = {
@@ -56,20 +63,20 @@ def send_slack_alert(message: str):
 
 
 
-def cpu_alert(cpu_usage):
+def cpu_alert(cpu_usage, simulate=False):
     if cpu_usage > CPU_THRESHOLD:
-        send_slack_alert(f"CPU usage high: {cpu_usage}%")
-        send_email_alert(f"CPU usage high: {cpu_usage}%")
+        send_slack_alert(f"CPU usage high: {cpu_usage}%", simulate)
+        send_email_alert(f"CPU usage high: {cpu_usage}%", f"Memory usage is {cpu_usage}%", simulate)
         
 
-def memory_alert(memory_usage):
+def memory_alert(memory_usage, simulate=False):
     if memory_usage > MEMORY_THRESHOLD:
-        send_slack_alert(f"CPU usage high: {memory_usage}%")
-        send_email_alert(f"CPU usage high: {memory_usage}%")
+        send_slack_alert(f"Memory usage high: {memory_usage}%", simulate)
+        send_email_alert(f"Memory usage high: {memory_usage}%",  f"Memory usage is {memory_usage}%", simulate)
         
 
-def disk_alert(disk_usage):
+def disk_alert(disk_usage, simulate=False):
     if disk_usage > DISK_THRESHOLD:
-        send_slack_alert(f"CPU usage high: {disk_usage}%")
-        send_email_alert(f"CPU usage high: {disk_usage}%")
+        send_slack_alert(f"Disk usage high: {disk_usage}%", simulate)
+        send_email_alert(f"Disk usage high: {disk_usage}%", f"Memory usage is {disk_usage}%", simulate)
         
