@@ -22,7 +22,8 @@ with open (output_file, 'w') as f:
     print(f"Disk Usage is: {disk_usage}%", file=f)
     print(f"Memory Usage is: {memory_usage}", file=f)
 
-# What is cpu > 80%
+# What if cpu > 80% ?
+# Add a check
 
 if cpu_usage > 80:
     print("WARNING: High CPU usage detected!")
