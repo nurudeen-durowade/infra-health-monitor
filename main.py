@@ -19,3 +19,6 @@ while True:
 
     alert.disk_alert(disk)
 
+    # run every 1 minute
+    time.sleep(60)
+
