@@ -16,7 +16,7 @@ def send_email_alert(subject: str, message: str, simulate=False):
 
     sender_email = "nurudeendurowade@gmail.com"
 
-    sender_password = "Durowad8*@123"
+    sender_password = "*******"
 
     msg = MIMEText(message)
 
