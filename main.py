@@ -13,11 +13,11 @@ while True:
 
     health.write_to_logs(cpu, memory, disk)
 
-    alert.cpu_alert(cpu, simulate=True)
+    alert.usage_alert(cpu, memory, disk, simulate=False)
 
-    alert.memory_alert(memory, simulate=True)
+    # alert.memory_alert(memory, simulate=False)
 
-    alert.disk_alert(disk, simulate=True)
+    # alert.disk_alert(disk, simulate=False)
 
     time.sleep(60)
 
